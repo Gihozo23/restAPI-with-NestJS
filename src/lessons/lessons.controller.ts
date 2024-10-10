@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 
 @Controller('lessons')
 export class LessonsController {
@@ -9,5 +9,9 @@ export class LessonsController {
   @Get('/:id')
   findOneLesson(@Param('id') id: string) {
     return `This action returns a #${id} lesson`;
+  }
+  @Post()
+  createLesson(@Body('name') name: string) {
+    return `${name} lesson has been created`;
   }
 }
